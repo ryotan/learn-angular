@@ -12,13 +12,13 @@ describe('PhoneCat App', function() {
 
 
     it('should filter the phone list as user types into the search box', function() {
-      expect(repeater('.phones li').count()).toBe(20);
+      expect(repeater('.phones li').count()).toBe(5);
 
-      input('query').enter('nexus');
+      input('query').enter('dell');
       expect(repeater('.phones li').count()).toBe(1);
 
       input('query').enter('motorola');
-      expect(repeater('.phones li').count()).toBe(8);
+      expect(repeater('.phones li').count()).toBe(3);
     });
 
 
