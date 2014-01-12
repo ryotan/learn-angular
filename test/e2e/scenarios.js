@@ -21,7 +21,6 @@ describe('PhoneCat App', function() {
       expect(repeater('.phones li').count()).toBe(2);
     });
 
-
     it('should be possible to control phone order via the drop down select box', function() {
       input('query').enter('tablet'); //let's narrow the dataset to make the test assertions shorter
 
@@ -30,7 +29,16 @@ describe('PhoneCat App', function() {
                    "MOTOROLA XOOM\u2122"]);
 
       select('orderProp').option('Alphabetical');
+      expect(repeater('.phones li', 'Phone List').column('phone.name')).
+        toEqual(["MOTOROLA XOOM\u2122",
+                 "Motorola XOOM\u2122 with Wi-Fi"]);
 
+      select('orderProp').option('Newest');
+      expect(repeater('.phones li', 'Phone List').column('phone.name')).
+        toEqual(["Motorola XOOM\u2122 with Wi-Fi",
+                 "MOTOROLA XOOM\u2122"]);
+
+      select('orderProp').option('Oldest');
       expect(repeater('.phones li', 'Phone List').column('phone.name')).
           toEqual(["MOTOROLA XOOM\u2122",
                    "Motorola XOOM\u2122 with Wi-Fi"]);
@@ -39,7 +47,7 @@ describe('PhoneCat App', function() {
     it('should show oderProp', function() {
       expect(element('#current_order').text()).toBe('age');
 
-      select('orderProp').option('name');
+      select('orderProp').option('Alphabetical');
       expect(element('#current_order').text()).toBe('name');
     });
   });
