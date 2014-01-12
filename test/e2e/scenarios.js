@@ -35,5 +35,12 @@ describe('PhoneCat App', function() {
           toEqual(["MOTOROLA XOOM\u2122",
                    "Motorola XOOM\u2122 with Wi-Fi"]);
     });
+
+    it('should show oderProp', function() {
+      expect(element('#current_order').text()).toBe('age');
+
+      select('orderProp').option('name');
+      expect(element('#current_order').text()).toBe('name');
+    });
   });
 });
