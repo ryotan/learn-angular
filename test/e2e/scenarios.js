@@ -61,5 +61,9 @@ describe('PhoneCat App', function() {
     it('should display nexus-s page', function() {
       expect(binding('phone.name')).toBe('Nexus S');
     });
+
+    it('should show 4 thumbnails on nexus-s page', function() {
+      expect(repeater('.phone-thumbs img').count()).toBe(4);
+    });
   });
 });
