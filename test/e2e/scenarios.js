@@ -10,6 +10,12 @@ describe('PhoneCat App', function() {
       browser().navigateTo('app/index.html');
     });
 
+    it('should show the query which user types into the search box', function() {
+      expect(element('.query').text()).toBe('');
+
+      input('query').enter('some query');
+      expect(element('.query').text()).toBe('some query')
+    });
 
     it('should filter the phone list as user types into the search box', function() {
       expect(repeater('.phones li').count()).toBe(3);
