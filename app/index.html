@@ -15,9 +15,9 @@
       <div class="span2">
         <!--Sidebar content-->
 
-        Search: <input ng-model="query">
-        Sort by:
-        <select ng-model="orderProp">
+        <label for="query">Search: </label><input id="query" ng-model="query">
+        <label for="order">Sort by:</label>
+        <select id="order" ng-model="orderProp">
           <option value="name">Alphabetical</option>
           <option value="age">Newest</option>
         </select>
